@@ -19,3 +19,4 @@ tests/screenshots/
 # 日志
 *.log
 npm-debug.log*
+.playwright-cli/
