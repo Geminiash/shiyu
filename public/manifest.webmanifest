@@ -1,0 +1,14 @@
+{
+  "name": "时雨 · Shiyu",
+  "short_name": "时雨",
+  "description": "把时间过成风景的日历小站：倒计时、节气、农历与番茄钟。",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08090A",
+  "theme_color": "#08090A",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "logo-192.webp", "sizes": "192x192", "type": "image/webp", "purpose": "any" },
+    { "src": "logo-512.webp", "sizes": "512x512", "type": "image/webp", "purpose": "any" }
+  ]
+}

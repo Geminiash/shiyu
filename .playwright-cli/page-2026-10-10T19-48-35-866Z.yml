@@ -1,0 +1,40 @@
+- generic [active] [ref=f2e1]:
+  - article [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - paragraph [ref=f2e4]: 2026-10-10
+      - heading "秋日一封信" [level=1] [ref=f2e5]
+    - main [ref=f2e6]:
+      - paragraph [ref=f2e7]: 有人说秋天适合写信，日子变短，话变长。
+      - paragraph [ref=f2e8]:
+        - text: 这是
+        - strong [ref=f2e9]: LitePen
+        - text: 的一张样笺。留下第一句，换成你想说的，信就成了。
+      - heading "这张纸上的规矩" [level=2] [ref=f2e10]
+      - list [ref=f2e11]:
+        - listitem [ref=f2e12]: 首段第一个字会自动下沉，用强调色，像信的开头
+        - listitem [ref=f2e13]:
+          - text: 一行
+          - code [ref=f2e14]: "---"
+          - text: 变成一枝花，放在意思转折的地方
+        - listitem [ref=f2e15]:
+          - text: 强调色和页脚寄语写在 frontmatter 里就能换；
+          - code [ref=f2e16]: "--dark"
+          - text: 给你一张夜笺
+      - blockquote [ref=f2e17]:
+        - paragraph [ref=f2e18]: 信很慢，但每一行都会到。
+      - separator [ref=f2e19]:
+        - img "花枝分隔线" [ref=f2e20]
+      - paragraph [ref=f2e33]:
+        - text: 写完存成
+        - code [ref=f2e34]: letter.md
+        - text: ，运行
+        - code [ref=f2e35]: litepen build letter.md
+        - text: ，信就到了
+        - code [ref=f2e36]: out/index.html
+        - text: 。用
+        - deletion [ref=f2e37]: 飞鸽
+        - text: 浏览器打开，就能读。
+    - generic [ref=f2e39]:
+      - generic [ref=f2e40]: 某个人
+      - generic [aria-hidden] [ref=f2e41]: 笔
+  - paragraph [ref=f2e42]: 手写于深夜与清晨之间，感谢读到这一行。

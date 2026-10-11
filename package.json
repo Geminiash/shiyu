@@ -1,0 +1,31 @@
+{
+  "name": "shiyu",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "时雨 · Shiyu —— 把时间过成风景的日历小站：倒计时、节气、农历与番茄钟。",
+  "packageManager": "pnpm@11.1.1",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "assets": "node scripts/generate-assets.mjs"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "happy-dom": "^16.0.0",
+    "sharp": "^0.34.0",
+    "typescript": "~5.8.0",
+    "vite": "^7.0.0",
+    "vitest": "^3.2.0",
+    "vue-tsc": "^3.0.0"
+  }
+}

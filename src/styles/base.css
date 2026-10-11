@@ -1,0 +1,271 @@
+/* 基础层：reset、玻璃卡片、可访问性、动效降级 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-base);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--jieqi-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(94, 106, 210, 0.45);
+}
+
+/* 等宽数字：日期 / 时钟 / 圆环读数必须 */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* 衬线大字 */
+.serif {
+  font-family: var(--font-serif);
+}
+
+/* 文字渐变（标题点睛用） */
+.gradient-text {
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- 玻璃卡片（butterfly/shoka/aurora 参数实录，见 visual-guide §4） ---- */
+.card {
+  position: relative;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* 渐变描边：亮点在上缘（伪元素 mask 法） */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--border-gradient);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 卡片头：小号弱化标题 */
+.card-head {
+  padding: var(--space-3) var(--space-3) 0;
+}
+
+.card-head h2 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+
+/* 主按钮：极光渐变 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  background: var(--main-gradient);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  box-shadow: 0 6px 16px -6px rgba(84, 51, 255, 0.55);
+  transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px -6px rgba(84, 51, 255, 0.65);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 次按钮：玻璃描边 */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-body);
+  letter-spacing: 0.06em;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--jieqi-accent);
+  color: var(--text-strong);
+}
+
+/* 输入框 */
+.field {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-strong);
+  transition: border-color 0.2s;
+}
+
+.field::placeholder {
+  color: var(--text-faint);
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--jieqi-accent);
+}
+
+/* 图标按钮：触控目标 44px */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-body);
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.icon-btn:hover {
+  color: var(--text-strong);
+  border-color: var(--jieqi-accent);
+}
+
+.icon-btn:active {
+  transform: scale(0.94);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* 入场：shoka slideUpBigIn 的收敛版 */
+.enter {
+  animation: slide-up-in 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@keyframes slide-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 呼吸光晕（2s，visual-guide §6 原值） */
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+.breathe {
+  animation: breathe 2s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* 全局动效降级：一律直达终态（visual-guide §6 原样） */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

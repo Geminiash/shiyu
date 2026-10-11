@@ -1,0 +1,68 @@
+/**
+ * 时雨设计令牌 —— 依据 docs/visual-guide.md「三项目视觉规格速查表」时雨列。
+ * 暗色极光为默认主题；浅色纸感通过 [data-theme='light'] 覆写。
+ */
+:root {
+  /* 底色（Linear 近黑蓝调） */
+  --bg-base: #08090a;
+  --bg-elevated: #0f0f1a;
+  --bg-card: #1b1b2e;
+
+  /* 强调：极光主渐变（aurora 主题签名 130deg） */
+  --main-gradient: linear-gradient(130deg, #24c6dc, #5433ff 41.07%, #ff0099 76.05%);
+  --soft-gradient: linear-gradient(62deg, #87c2fd 0%, #dcb9fc 100%);
+  --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.25), transparent 40%);
+
+  /* 文字（alpha(#fff,.7) 是对比度底线） */
+  --text-strong: rgba(255, 255, 255, 0.9);
+  --text-body: rgba(255, 255, 255, 0.66);
+  --text-faint: rgba(255, 255, 255, 0.4);
+
+  /* 玻璃与阴影 */
+  --glass-bg: rgba(26, 26, 42, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --shadow-card:
+    0 20px 25px -5px rgba(11, 42, 59, 0.35),
+    0 10px 10px -5px rgba(11, 42, 59, 0.14);
+
+  /* 圆角 / 间距（4pt 系） */
+  --radius-card: 12px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 20px;
+  --space-4: 32px;
+
+  /* 字体栈（butterfly 实值 + 衬线大字） */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
+  --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', SimSun, serif;
+
+  /* 圆环轨道 */
+  --ring-track: rgba(255, 255, 255, 0.08);
+
+  /* 今日节气主色（默认值，运行时由 App 按节气覆写） */
+  --jieqi-accent: #7fdbda;
+
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --bg-base: #f5f1e8;
+  --bg-elevated: #faf8f2;
+  --bg-card: #fffdf8;
+
+  --text-strong: rgba(58, 53, 46, 0.95);
+  --text-body: rgba(58, 53, 46, 0.78);
+  --text-faint: rgba(58, 53, 46, 0.48);
+
+  --glass-bg: rgba(255, 253, 248, 0.72);
+  --glass-border: rgba(58, 53, 46, 0.08);
+  --border-gradient: linear-gradient(180deg, rgba(58, 53, 46, 0.16), transparent 40%);
+  --shadow-card:
+    0 20px 25px -12px rgba(58, 53, 46, 0.16),
+    0 8px 10px -8px rgba(58, 53, 46, 0.08);
+  --ring-track: rgba(58, 53, 46, 0.1);
+
+  color-scheme: light;
+}
