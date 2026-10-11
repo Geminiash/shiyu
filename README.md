@@ -8,6 +8,12 @@
 
 ![技术栈](https://img.shields.io/badge/Vue%203.5-Vite%207-42b883)
 
+## 界面
+
+| 桌面（暗色极光） | 移动端 |
+| --- | --- |
+| ![桌面](docs/screenshot-desktop.webp) | ![移动端](docs/screenshot-mobile.webp) |
+
 ## 功能
 
 | 模块 | 说明 |
